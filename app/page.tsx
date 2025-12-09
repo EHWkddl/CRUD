@@ -1,18 +1,18 @@
 import TopicsList from '@/components/TopicsList'
 
 function getBaseUrl() {
+  // Client 환경
   if (typeof window !== 'undefined') {
-    // Client 환경
     return window.location.origin
   }
 
-  // Server 환경
+  // Server 환경 (Vercel)
   if (process.env.VERCEL_URL) {
-    return `https://crud-r19o.vercel.app/${process.env.VERCEL_URL}`
+    return `https://${process.env.VERCEL_URL}`
   }
 
-  // Development
-  return 'http://localhost:3001'
+  // Dev 환경
+  return 'http://localhost:3000'
 }
 
 async function getTopics() {

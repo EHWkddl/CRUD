@@ -1,9 +1,13 @@
 import TopicsList from '@/components/TopicsList'
 
 async function getTopics() {
-  const res = await fetch('http://localhost:3001/api/topics', {
+  const baseUrl =
+    process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : ''
+
+  const res = await fetch(`${baseUrl}/api/topics`, {
     cache: 'no-store',
   })
+
   return res.json()
 }
 

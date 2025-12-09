@@ -9,7 +9,7 @@ export default function EditForm({ id }: any) {
   const [description, setDescription] = useState('')
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/topics/${id}`)
+    fetch(`/api/topics/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTitle(data.topic.title)
@@ -20,7 +20,7 @@ export default function EditForm({ id }: any) {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    await fetch(`http://localhost:3001/api/topics/${id}`, {
+    await fetch(`/api/topics/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title, description }),

@@ -7,7 +7,7 @@ export default function RemoveBtn({ id }: any) {
     const confirmed = confirm('정말 삭제하시겠습니까?')
     if (!confirmed) return
 
-    await fetch(`http://localhost:3001/api/topics?id=${id}`, {
+    await fetch(`/api/topics?id=${id}`, {
       method: 'DELETE',
     })
 

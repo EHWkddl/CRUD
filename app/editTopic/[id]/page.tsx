@@ -1,12 +1,11 @@
 import TopicsList from '@/components/TopicsList'
-import { headers } from 'next/headers'
 
 async function getTopics() {
-  const headerList = await headers()
-  const host = headerList.get('host') || 'localhost:3000'
-  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https'
-
-  const res = await fetch(`${protocol}://${host}/api/topics`, {
+  const baseUrl =
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://crud-6ngk.vercel.app/'
+  const res = await fetch(`${baseUrl}/api/topics`, {
     cache: 'no-store',
   })
 

@@ -4,14 +4,11 @@ async function getTopics() {
   const baseUrl =
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://crud-6ngk.vercel.app/'
+      : 'https://crud-6ngk.vercel.app' // 네 Vercel 주소
+
   const res = await fetch(`${baseUrl}/api/topics`, {
     cache: 'no-store',
   })
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch topics')
-  }
 
   return res.json()
 }

@@ -18,7 +18,6 @@ export default function TopicsList({ topics }: { topics: Topic[] }) {
       {topics.map((topic) => (
         <div key={topic._id} className="mb-6">
           <div className="border p-6 rounded-md shadow-sm flex justify-between items-start">
-            {/* 왼쪽 내용 영역 */}
             <div>
               <h2 className="text-2xl font-bold">{topic.title}</h2>
               <p className="text-base">{topic.description}</p>
